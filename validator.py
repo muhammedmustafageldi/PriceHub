@@ -16,11 +16,12 @@ class Validator:
             try:
                 # Check if there is price information
                 name_item = element.find_element(By.CLASS_NAME, 'a-size-base-plus')
+                print(name_item.text)
                 # If there isn't price info throw exception
-                element.find_element(By.CLASS_NAME, 'a-price-whole')
+                price_element = element.find_element(By.CLASS_NAME, 'a-price-whole')
 
                 if required_name.lower() in name_item.text.lower():
-                    return element
+                    return price_element
 
             except NoSuchElementException:
                 pass
